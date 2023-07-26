@@ -1,0 +1,23 @@
+[package]
+name = "hyper-trace-id"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Hyper (axum, warp, poem, ...) middleware for adding trace ids to requests."
+keywords = ["hyper", "axum", "warp", "trace-id", "request-id"]
+repository = "https://github.com/dominik-seeger/hyper-trace-id"
+
+[features]
+default = ["axum"]
+axum = ["dep:axum"]
+
+[dependencies]
+axum = { version = "0.6.19", optional = true }
+futures = "0.3.28"
+tower = "0.4.13"
+uuid = { version = "1.4.1", features = ["v4", "fast-rng"] }
+hyper = "0.14.27"
+
+[dev-dependencies]
+tokio = { version = "1.29.1", features = ["macros", "rt"]}
+tower = { version = "0.4.13", features = ["util"] }
